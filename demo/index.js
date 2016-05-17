@@ -1,43 +1,28 @@
 angular
 .module('DemoApp', ['WifiMapping'])
 .controller('DemoCtrl', function($scope, wifiMappingAPI) {
-    $scope.params = {
-        page_size: 5,
-        page: 0,
-        acc: '',
-        altitude: '',
-        startdate: '5/10/2016',
-        enddate: '',
-        device_mac: '',
-        app_version: '',
-        droid_version: '',
-        bssid: '',
-        ssid: 'nyu',
-        caps: '',
-        level: '',
-        freq: ''
-    };
+    $scope.params = {};
+    for (var i in wifiMappingAPI.queryParams) {
+        $scope.params[wifiMappingAPI.queryParams[i]] = null;
+    }
+    delete $scope.params['columns'];
+    $scope.params['page_size'] = 5;
+    $scope.params['page'] = 0;
+    $scope.params['startdate'] = '5/10/2016';
+    $scope.params['ssid'] = 'nyu';
 
-    $scope.columns = {
-        lat: false,
-        lng: false,
-        acc: false,
-        altitude: false,
-        time: false,
-        device_mac: false,
-        app_version: false,
-        droid_version: false,
-        device_model: false,
-        ssid: true,
-        bssid: false,
-        caps: false,
-        level: false,
-        freq: false
-    };
+    $scope.columns = {};
+    for (var i in wifiMappingAPI.queryColumns) {
+        $scope.columns[wifiMappingAPI.queryColumns[i]] = false;
+    }
+
+    $scope.columns['ssid'] = true;
+    $scope.columns['level'] = true;
+    $scope.columns['time'] = true;
 
     $scope.execute = function() {
         $scope.text = 'Pending...';
-        
+
         var columns = [];
         for (var col in $scope.columns) {
             if ($scope.columns[col]) {
@@ -51,6 +36,43 @@ angular
             }
         }
         wifiMappingAPI.query(params).then(function(res) {
+            $scope.text = res;
+        });
+    }
+})
+.controller('DemoCtrl2', function($scope, wifiMappingAPI) {
+    $scope.params = {};
+    for (var i in wifiMappingAPI.queryParams) {
+        $scope.params[wifiMappingAPI.queryParams[i]] = null;
+    }
+    delete $scope.params['columns'];
+    $scope.params['page_size'] = 5;
+    $scope.params['page'] = 0;
+    $scope.params['startdate'] = '5/10/2016';
+
+    $scope.columns = {};
+    for (var i in wifiMappingAPI.apColumns) {
+        $scope.columns[wifiMappingAPI.apColumns[i]] = false;
+    }
+    $scope.columns['ssid'] = true;
+    $scope.columns['caps'] = true;
+
+    $scope.execute = function() {
+        $scope.text = 'Pending...';
+
+        var columns = [];
+        for (var col in $scope.columns) {
+            if ($scope.columns[col]) {
+                columns.push(col);
+            }
+        }
+        var params = {columns: columns};
+        for (param in $scope.params) {
+            if ($scope.params[param]) {
+                params[param] = $scope.params[param];
+            }
+        }
+        wifiMappingAPI.getAccessPoints(params).then(function(res) {
             $scope.text = res;
         });
     }

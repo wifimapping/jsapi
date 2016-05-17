@@ -41,7 +41,7 @@ And then navigating to `http://localhost:8000/demo/` in a browser.
 
 # Functions
 
-## wifiMappingAPI.query
+## wifiMappingAPI.query()
 
 Query the API for individual scans.  Takes an object with the following
 parameters:
@@ -79,3 +79,43 @@ parameters:
 * `freq`: Equal to the specified frequency
 
 Returns a list of scan results with the columns specified.
+
+## wifiMappingAPI.getAccessPoints()
+
+Query the API for unique access points.  Takes an object with the following
+parameters:
+
+* `page_size`: Number of responses
+* `page`: when using page size, which page to return.
+    Starts at 0.
+* `columns`: a list of columns to return.  Available columns are:
+    * `ssid`
+    * `bssid`
+    * `caps`
+    * `freq`
+* `acc`: accuracy greater than or equal to the given value
+* `startdate`: date grater than or equal to this date
+* `enddate`: date less than this date
+* `device_mac`: scan done by the given device mac address
+* `app_version`: scan done by given app version
+* `droid_version`: scan done by phone with given android version
+* `device_model`: scan done by phone of given model
+* `ssid`: a single ssid or list of ssids
+* `bssid`: equal to the given bssid
+* `caps`: contains a given capability. i.e. `wps`
+* `level`: greater than or equal to the given signal strength
+* `freq`: Equal to the specified frequency
+
+Returns a list of access points with the columns specified.
+
+## wifiMappingAPI.queryParams
+
+The list of available parameters.
+
+## wifiMappingAPI.queryColumns
+
+The list of columns for `query`.
+
+## wifiMappingAPI.apColumns
+
+The list of columns for `getAccessPoints`.
