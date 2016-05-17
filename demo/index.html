@@ -9,8 +9,17 @@
   <script src="../src/wifimappingapi.js"></script>
 </head>
 <body ng-controller="DemoCtrl">
+    <div ng-repeat="(key,value) in params">
+        <label>{{key}}: <input type="text" ng-model='params[key]'></label>
+    </div>
 
-  {{text}}
+    <h2> Columns </h2>
+    <div>
+        <label ng-repeat="(key,value) in columns">   {{key}}:<input type="checkbox" ng-model="columns[key]"></label>
+    </div>
+    <br/><button ng-click="execute()"> Execute Query </button>
+    <h2>Response</h2>
+    <pre>{{text}}</pre>
 
 </body>
 </html>
