@@ -6,7 +6,7 @@ This is a javascript wrapper on the web API.
 
 # Installation
 
-        bower install --save git@github.com:wifimapping/jsapi.git
+        bower install --save https://github.com/docmarionum1/jsapi.git
 
 # Usage
 
