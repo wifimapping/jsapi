@@ -1,6 +1,6 @@
 angular
-.module('DemoApp', ['WifiMapping'])
-.controller('DemoCtrl', function($scope, wifiMappingAPI) {
+.module('DemoApp', ['WiFind'])
+.controller('DemoCtrl', function($scope, wiFindAPI) {
     $scope.params = {};
     for (var i in wifiMappingAPI.queryParams) {
         $scope.params[wifiMappingAPI.queryParams[i]] = null;
