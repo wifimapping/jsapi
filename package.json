@@ -1,6 +1,6 @@
 {
   "name": "wifimapping-jsapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A javascript API for the wifimapping Web API",
   "main": "index.js",
   "scripts": {
