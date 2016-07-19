@@ -138,6 +138,8 @@ var AP_COLUMNS = [
 ];
 
 
+// ## getRequestColumns
+
 // Return a pipe separated list of columns to be returned by the API.
 // `validColumns` depends on the type of query.
 // `params` is an object containing an attribute `columns` which is an array
@@ -159,6 +161,8 @@ function getRequestColumns(validColumns, params) {
         return columns.join('|');
     }
 }
+
+// ## getRequestParams
 
 // Format the parameters correctly for the API.
 // API. `validParams` and `validColumns` depend on the request type.
@@ -192,6 +196,8 @@ function getRequestParams(validParams, validColumns, params) {
     return queryParams;
 }
 
+// # wiFindAPI
+
 // Create the WiFind angular module which exposes `wiFindAPI`
 angular
 .module('WiFind', [])
@@ -203,6 +209,8 @@ angular
             queryColumns: QUERY_COLUMNS,
             apColumns: AP_COLUMNS,
 
+
+            // ## query
 
             // Query the API for individual scans.  Accepts an object `params`
             // with the following properties:
@@ -237,6 +245,8 @@ angular
             },
 
 
+            // ## getAccessPoints
+
             // Query the API for unique access points.
             // Accepts an object `params` with the following properties:
             //
@@ -267,6 +277,7 @@ angular
                     return res.data;
                 });
             }
+            //
         }
     }];
 });
