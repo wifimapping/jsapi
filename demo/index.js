@@ -2,8 +2,8 @@ angular
 .module('DemoApp', ['WiFind'])
 .controller('DemoCtrl', function($scope, wiFindAPI) {
     $scope.params = {};
-    for (var i in wifiMappingAPI.queryParams) {
-        $scope.params[wifiMappingAPI.queryParams[i]] = null;
+    for (var i in wiFindAPI.queryParams) {
+        $scope.params[wiFindAPI.queryParams[i]] = null;
     }
     delete $scope.params['columns'];
     $scope.params['page_size'] = 5;
@@ -12,8 +12,8 @@ angular
     $scope.params['ssid'] = 'nyu';
 
     $scope.columns = {};
-    for (var i in wifiMappingAPI.queryColumns) {
-        $scope.columns[wifiMappingAPI.queryColumns[i]] = false;
+    for (var i in wiFindAPI.queryColumns) {
+        $scope.columns[wiFindAPI.queryColumns[i]] = false;
     }
 
     $scope.columns['ssid'] = true;
@@ -35,15 +35,15 @@ angular
                 params[param] = $scope.params[param];
             }
         }
-        wifiMappingAPI.query(params).then(function(res) {
+        wiFindAPI.query(params).then(function(res) {
             $scope.text = res;
         });
     }
 })
-.controller('DemoCtrl2', function($scope, wifiMappingAPI) {
+.controller('DemoCtrl2', function($scope, wiFindAPI) {
     $scope.params = {};
-    for (var i in wifiMappingAPI.queryParams) {
-        $scope.params[wifiMappingAPI.queryParams[i]] = null;
+    for (var i in wiFindAPI.queryParams) {
+        $scope.params[wiFindAPI.queryParams[i]] = null;
     }
     delete $scope.params['columns'];
     $scope.params['page_size'] = 5;
@@ -51,8 +51,8 @@ angular
     $scope.params['startdate'] = '5/10/2016';
 
     $scope.columns = {};
-    for (var i in wifiMappingAPI.apColumns) {
-        $scope.columns[wifiMappingAPI.apColumns[i]] = false;
+    for (var i in wiFindAPI.apColumns) {
+        $scope.columns[wiFindAPI.apColumns[i]] = false;
     }
     $scope.columns['ssid'] = true;
     $scope.columns['caps'] = true;
@@ -72,7 +72,7 @@ angular
                 params[param] = $scope.params[param];
             }
         }
-        wifiMappingAPI.getAccessPoints(params).then(function(res) {
+        wiFindAPI.getAccessPoints(params).then(function(res) {
             $scope.text = res;
         });
     }
