@@ -53,7 +53,6 @@
 //     * `acc`
 //     * `altitude`
 //     * `time`
-//     * `device_mac`
 //     * `app_version`
 //     * `droid_version`
 //     * `device_model`
@@ -65,7 +64,6 @@
 // * `acc`: accuracy greater than or equal to the given value
 // * `startdate`: date grater than or equal to this date
 // * `enddate`: date less than this date
-// * `device_mac`: scan done by the given device mac address
 // * `app_version`: scan done by given app version
 // * `droid_version`: scan done by phone with given android version
 // * `device_model`: scan done by phone of given model
@@ -93,7 +91,6 @@
 // * `acc`: accuracy greater than or equal to the given value
 // * `startdate`: date grater than or equal to this date
 // * `enddate`: date less than this date
-// * `device_mac`: scan done by the given device mac address
 // * `app_version`: scan done by given app version
 // * `droid_version`: scan done by phone with given android version
 // * `device_model`: scan done by phone of given model
@@ -120,14 +117,14 @@ var MAPPING = {
 // List of valid parameters
 var PARAMS = [
     'page_size', 'page', 'acc', 'altitude', 'startdate',
-    'enddate', 'device_mac', 'app_version', 'droid_version',
+    'enddate', 'app_version', 'droid_version',
     'bssid', 'caps', 'level', 'freq',
     'columns', 'ssid',
 ];
 
 // List of valid columns for query
 var QUERY_COLUMNS = [
-    'lat', 'lng', 'acc', 'altitude', 'time', 'device_mac',
+    'lat', 'lng', 'acc', 'altitude', 'time',
     'app_version', 'droid_version', 'device_model', 'ssid', 'bssid',
     'caps', 'level', 'freq'
 ];
@@ -219,13 +216,12 @@ angular
             // * page: when using page size, which page to return.
             //     Starts at 0.
             // * columns: a list of columns to return.  Available columns
-            //     are: idx, lat, lng, acc, altitude, time, device_mac
+            //     are: idx, lat, lng, acc, altitude, time,
             //     app_version, droid_version, device_model, ssid, bssid,
             //     caps, level and freq.
             // * acc: accuracy greater than or equal to the given value
             // * startdate: date grater than or equal to this date
             // * enddate: date less than this date
-            // * device_mac: scan done by the given device mac address
             // * app_version: scan done by given app version
             // * droid_version: scan done by phone with given android version
             // * device_model: scan done by phone of given model
@@ -258,7 +254,6 @@ angular
             // * acc: accuracy greater than or equal to the given value
             // * startdate: date grater than or equal to this date
             // * enddate: date less than this date
-            // * device_mac: scan done by the given device mac address
             // * app_version: scan done by given app version
             // * droid_version: scan done by phone with given android version
             // * device_model: scan done by phone of given model

@@ -68,7 +68,6 @@ parameters:
 * `acc`: accuracy greater than or equal to the given value
 * `startdate`: date grater than or equal to this date
 * `enddate`: date less than this date
-* `device_mac`: scan done by the given device mac address
 * `app_version`: scan done by given app version
 * `droid_version`: scan done by phone with given android version
 * `device_model`: scan done by phone of given model
@@ -96,7 +95,6 @@ parameters:
 * `acc`: accuracy greater than or equal to the given value
 * `startdate`: date grater than or equal to this date
 * `enddate`: date less than this date
-* `device_mac`: scan done by the given device mac address
 * `app_version`: scan done by given app version
 * `droid_version`: scan done by phone with given android version
 * `device_model`: scan done by phone of given model
